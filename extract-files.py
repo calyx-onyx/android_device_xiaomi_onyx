@@ -283,12 +283,6 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/etc/seccomp_policy/qesdksec.policy': blob_fixup()
         .add_line_if_missing('lseek: 1'),
 
-    'vendor/lib64/android.hardware.bluetooth.audio-impl_prebuilt.so': blob_fixup()
-        .replace_needed(
-            'libbluetooth_audio_session_aidl.so',
-            'libbluetooth_audio_session_aidl_prebuilt.so'
-    ),
-
     (
         'vendor/lib64/camera/components/com.qti.node.dewarp.so',
         'vendor/lib64/hw/com.qti.chi.override.so',
@@ -331,13 +325,10 @@ blob_fixups: blob_fixups_user_type = {
 
     'vendor/lib64/libaudioserviceexampleimpl.so': blob_fixup()
         .add_needed('libaudioutils_shim.so')
-        .replace_needed(
-            'android.hardware.bluetooth.audio-impl.so',
-            'android.hardware.bluetooth.audio-impl_prebuilt.so'
-        )
-        .replace_needed(
-            'libbluetooth_audio_session_aidl.so',
-            'libbluetooth_audio_session_aidl_prebuilt.so'
+        .add_needed('libbluetooth_audio_session_aidl_shim.so')
+        .binary_regex_replace(
+            b'BluetoothAudioSession14GetAudioConfigEv',
+            b'BluetoothAudioSession14GetAudioConfV4Ev',
         )
         .replace_needed(
             'libaudio_aidl_conversion_common_ndk.so',
