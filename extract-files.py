@@ -331,10 +331,6 @@ blob_fixups: blob_fixups_user_type = {
             b'BluetoothAudioSession14GetAudioConfV4Ev',
         )
         .replace_needed(
-            'libaudio_aidl_conversion_common_ndk.so',
-            'libaudio_aidl_conversion_common_ndk_prebuilt.so'
-        )
-        .replace_needed(
             'android.media.audio.common.types-V6-ndk.so',
             'android.media.audio.common.types-V3-ndk.so'
     ),

@@ -56,6 +56,7 @@ PRODUCT_PACKAGES += \
     libagm_mixer_plugin \
     libagm_pcm_plugin \
     libaudiochargerlistener \
+    libaudio_aidl_conversion_common_ndk \
     libbatterylistener \
     libcustomva_intf \
     libfmpal \
