@@ -43,6 +43,10 @@ PRODUCT_PACKAGES += \
 BOARD_SHIPPING_API_LEVEL := 202404
 PRODUCT_SHIPPING_API_LEVEL := 35
 
+# APN
+PRODUCT_PACKAGES += \
+    apns-conf.xml
+
 # Audio
 PRODUCT_PACKAGES += \
     audio.bluetooth.default \
